@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { contactAction } from "@/app/actions";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ export default function ContactForm() {
     phone: "",
     message: "",
   });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,9 +20,26 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data:", formData);
-    alert("Mesajınız gönderildi! En kısa sürede dönüş yapacağız.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const data = new FormData();
+      Object.keys(formData).forEach((key) => data.append(key, formData[key]));
+      
+      const result = await contactAction(data);
+
+      if (result.success) {
+        setStatus({ type: "success", message: "Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız." });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus({ type: "error", message: result.error || "Bir hata oluştu. Lütfen tekrar deneyin." });
+      }
+    } catch (error) {
+      setStatus({ type: "error", message: "Sistemde bir hata oluştu. Lütfen daha sonra tekrar deneyin." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -68,6 +88,11 @@ export default function ContactForm() {
           <div className="bg-primary-900 p-8 md:p-12 border border-primary-700">
             <h3 className="text-2xl font-bold text-white mb-8" style={{ fontFamily: 'var(--font-playfair), serif' }}>Mesaj Gönderin</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {status.message && (
+                <div className={`p-4 text-sm ${status.type === "success" ? "bg-green-500/10 text-green-500 border border-green-500/20" : "bg-red-500/10 text-red-500 border border-red-500/20"}`}>
+                  {status.message}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <input
@@ -75,9 +100,10 @@ export default function ContactForm() {
                     id="name"
                     name="name"
                     required
+                    disabled={isSubmitting}
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors text-sm"
+                    className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors text-sm disabled:opacity-50"
                     placeholder="Adınız Soyadınız"
                   />
                 </div>
@@ -87,9 +113,10 @@ export default function ContactForm() {
                     id="email"
                     name="email"
                     required
+                    disabled={isSubmitting}
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors text-sm"
+                    className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors text-sm disabled:opacity-50"
                     placeholder="E-posta Adresiniz"
                   />
                 </div>
@@ -99,9 +126,10 @@ export default function ContactForm() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  disabled={isSubmitting}
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors text-sm"
+                  className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors text-sm disabled:opacity-50"
                   placeholder="Telefon Numaranız"
                 />
               </div>
@@ -111,17 +139,27 @@ export default function ContactForm() {
                   name="message"
                   required
                   rows={4}
+                  disabled={isSubmitting}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors resize-none text-sm"
+                  className="w-full bg-primary-800 border border-primary-700 px-5 py-4 text-white placeholder-primary-400 focus:outline-none focus:border-accent-500 transition-colors resize-none text-sm disabled:opacity-50"
                   placeholder="Projenizden bahsedin..."
                 />
               </div>
               <button 
                 type="submit" 
-                className="w-full px-8 py-4 bg-accent-500 text-white font-medium uppercase tracking-wider text-sm hover:bg-white hover:text-primary-900 transition-colors duration-300"
+                disabled={isSubmitting}
+                className="w-full px-8 py-4 bg-accent-500 text-white font-medium uppercase tracking-wider text-sm hover:bg-white hover:text-primary-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
               >
-                GÖNDER
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    GÖNDERİLİYOR...
+                  </>
+                ) : "GÖNDER"}
               </button>
             </form>
           </div>
