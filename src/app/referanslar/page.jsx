@@ -15,7 +15,7 @@ export default function ReferanslarPage() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <div className="bg-primary-900 min-h-screen pt-32 pb-20">
+    <main className="bg-primary-900 min-h-screen pt-32 pb-20">
       <div className="container-custom">
         
         {/* Başlık Alanı */}
@@ -25,12 +25,13 @@ export default function ReferanslarPage() {
             title="Referanslarımız"
             description="Geçmişten günümüze tamamladığımız tüm projeler ve birlikte çalıştığımız mutlu müşterilerimiz."
             align="center"
+            isH1={true}
           />
         </div>
 
         {/* Kategori Filtreleri */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          {categories.map((category, idx) => (
+          {categories?.map((category, idx) => (
             <button
               key={idx}
               onClick={() => setActiveCategory(category)}
@@ -47,7 +48,7 @@ export default function ReferanslarPage() {
 
         {/* Proje Galeri (Grid) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects?.map((project, index) => (
             <div
               key={index}
               className="group relative overflow-hidden bg-primary-800 cursor-pointer h-[400px]"
@@ -89,6 +90,6 @@ export default function ReferanslarPage() {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }

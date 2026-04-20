@@ -8,13 +8,14 @@ export const metadata = {
 
 export default function IletisimPage() {
   return (
-    <div className="bg-primary-900 min-h-screen pt-32 pb-0">
+    <main className="bg-primary-900 min-h-screen pt-32 pb-0">
       <div className="container-custom mb-16">
         <SectionTitle
           subtitle="İletişim"
           title="Bize Ulaşın"
           description="Yeni projeleriniz için bizimle iletişime geçin, size en uygun çözümleri sunalım."
           align="center"
+          isH1={true}
         />
       </div>
 
@@ -56,6 +57,6 @@ export default function IletisimPage() {
         <ContactForm />
       </div>
 
-    </div>
+    </main>
   );
 }

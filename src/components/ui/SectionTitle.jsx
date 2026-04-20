@@ -1,5 +1,6 @@
-export default function SectionTitle({ subtitle, title, description, align = "center" }) {
+export default function SectionTitle({ subtitle, title, description, align = "center", isH1 = false }) {
   const alignClass = align === "center" ? "text-center" : "text-left";
+  const TitleTag = isH1 ? "h1" : "h2";
 
   return (
     <div className={`${alignClass} max-w-3xl ${align === "center" ? "mx-auto" : ""}`}>
@@ -12,9 +13,9 @@ export default function SectionTitle({ subtitle, title, description, align = "ce
           {align === "center" && <div className="w-8 h-[1px] bg-accent-500"></div>}
         </div>
       )}
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-playfair), serif' }}>
+      <TitleTag className="text-4xl md:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-playfair), serif' }}>
         {title}
-      </h2>
+      </TitleTag>
       {description && (
         <p className="text-primary-200 text-lg leading-relaxed font-light">
           {description}

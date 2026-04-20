@@ -21,7 +21,7 @@ const values = [
 
 export default function HakkimizdaPage() {
   return (
-    <div className="bg-primary-900 min-h-screen pt-32 pb-20">
+    <main className="bg-primary-900 min-h-screen pt-32 pb-20">
       {/* 1. Hikayemiz */}
       <section className="container-custom mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -45,6 +45,7 @@ export default function HakkimizdaPage() {
               subtitle="Hikayemiz"
               title="Mimariyi Sanatla Buluşturuyoruz"
               align="left"
+              isH1={true}
             />
             <p className="text-primary-200 mt-8 text-lg font-light leading-relaxed mb-6">
               2010 yılında kurulan ofisimiz, vizyoner bakış açısıyla mimari tasarım ve iç mimarlık alanında yenilikçi projelere imza atmaktadır. Her bir mekanı, kendi hikayesi olan benzersiz bir sanat eseri olarak görüyoruz.
@@ -76,7 +77,7 @@ export default function HakkimizdaPage() {
             align="center"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            {values.map((val, idx) => (
+            {values?.map((val, idx) => (
               <div key={idx} className="bg-primary-900 p-10 border border-primary-800 hover:border-accent-500 transition-colors duration-300 group">
                 <div className="w-16 h-16 rounded-full bg-primary-800 flex items-center justify-center text-accent-500 mb-6 group-hover:scale-110 transition-transform">
                   <span className="text-2xl font-bold" style={{ fontFamily: 'var(--font-playfair), serif' }}>0{idx+1}</span>
@@ -98,7 +99,7 @@ export default function HakkimizdaPage() {
           align="center"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-          {team.map((member, index) => (
+          {team?.map((member, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="w-full aspect-[3/4] bg-primary-800 border border-primary-700 relative overflow-hidden mb-6 flex items-center justify-center">
                 {/* Profil Placeholder */}
@@ -121,6 +122,6 @@ export default function HakkimizdaPage() {
         </div>
       </section>
 
-    </div>
+    </main>
   );
 }

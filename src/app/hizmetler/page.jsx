@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function HizmetlerPage() {
   return (
-    <div className="bg-primary-900 min-h-screen pt-32 pb-20">
+    <main className="bg-primary-900 min-h-screen pt-32 pb-20">
       <div className="container-custom">
         
         {/* Başlık Alanı */}
@@ -19,12 +19,13 @@ export default function HizmetlerPage() {
             title="Sizin İçin Neler Yapabiliriz?"
             description="Mimari tasarım, iç mimarlık, peyzaj ve renovasyon gibi tüm hizmet alanlarımız."
             align="center"
+            isH1={true}
           />
         </div>
 
         {/* Hizmetler Listesi (Zikzak Düzen) */}
         <div className="space-y-32">
-          {services.map((service, index) => (
+          {services?.map((service, index) => (
             <div key={index} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-center`}>
               
               {/* Görsel Alanı */}
@@ -75,6 +76,6 @@ export default function HizmetlerPage() {
         </div>
 
       </div>
-    </div>
+    </main>
   );
 }
