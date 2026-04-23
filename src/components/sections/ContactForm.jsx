@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { contactAction } from "@/app/actions";
 import { companyInfo } from "@/content/company";
@@ -14,6 +14,28 @@ export default function ContactForm() {
   });
   const [status, setStatus] = useState({ type: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+
+  // Sayfa yüklendiğinde mevcut cooldown kontrolü
+  useEffect(() => {
+    const lastSubmitTime = localStorage.getItem("lastContactSubmit");
+    if (lastSubmitTime) {
+      const elapsed = Math.floor((Date.now() - parseInt(lastSubmitTime)) / 1000);
+      if (elapsed < 60) {
+        setCountdown(60 - elapsed);
+      }
+    }
+  }, []);
+
+  // Geri sayım sayacı
+  useEffect(() => {
+    if (countdown > 0) {
+      const timer = setInterval(() => {
+        setCountdown((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [countdown]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,6 +43,12 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (countdown > 0) {
+      setStatus({ type: "success", message: `Mesajınız alındı. Yeni bir mesaj göndermek için lütfen ${countdown} saniye bekleyin.` });
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus({ type: "", message: "" });
 
@@ -33,6 +61,11 @@ export default function ContactForm() {
       if (result.success) {
         setStatus({ type: "success", message: "Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız." });
         setFormData({ name: "", email: "", phone: "", message: "" });
+
+        // Cooldown başlat
+        const now = Date.now();
+        localStorage.setItem("lastContactSubmit", now.toString());
+        setCountdown(60);
       } else {
         setStatus({ type: "error", message: result.error || "Bir hata oluştu. Lütfen tekrar deneyin." });
       }
@@ -161,7 +194,7 @@ export default function ContactForm() {
               </div>
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || countdown > 0}
                 className="w-full px-8 py-4 bg-accent-500 text-white font-medium uppercase tracking-wider text-sm hover:bg-white hover:text-primary-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-3"
               >
                 {isSubmitting ? (
@@ -172,6 +205,8 @@ export default function ContactForm() {
                     </svg>
                     GÖNDERİLİYOR...
                   </>
+                ) : countdown > 0 ? (
+                  `MESAJ ALINDI (${countdown}S)`
                 ) : "GÖNDER"}
               </button>
             </form>
