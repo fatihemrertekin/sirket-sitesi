@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "@/components/ui/CustomImage";
 import { designOptions } from "@/content/designTool";
+import { companyInfo } from "@/content/company";
 
 // Build initial state dynamically from designOptions so keys always match
 const buildInitialState = () => {
@@ -168,16 +169,16 @@ export default function DesignTool() {
                   </div>
                 </div>
 
-                <button 
-                  disabled={totalPrice === 0}
-                  className={`w-full py-4 text-sm font-bold uppercase tracking-widest transition-all duration-300 ${
+                <a 
+                  href={totalPrice > 0 ? `tel:${companyInfo.phone.replace(/\s+/g, '')}` : undefined}
+                  className={`block text-center w-full py-4 text-sm font-bold uppercase tracking-widest transition-all duration-300 ${
                     totalPrice > 0 
-                    ? "bg-accent-500 text-white hover:bg-white hover:text-primary-950" 
-                    : "bg-primary-800 text-primary-600 cursor-not-allowed"
+                    ? "bg-accent-500 text-white hover:bg-white hover:text-primary-950 cursor-pointer" 
+                    : "bg-primary-800 text-primary-600 cursor-not-allowed pointer-events-none"
                   }`}
                 >
-                  TEKLİFİ TAMAMLA
-                </button>
+                  TEKLİF AL
+                </a>
                 <p className="text-[10px] text-primary-500 mt-4 text-center">
                   * Fiyatlar başlangıç tutarlarıdır ve kesinlik arz etmez.
                 </p>

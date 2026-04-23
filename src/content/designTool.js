@@ -52,7 +52,7 @@ export const designOptions = [
         description: "Isıl işlem görmüş, boyutsal kararlılığı yüksek.",
         price: 20000,
         image: "/images/design-tool/wood.png"
-      }
+      },
     ]
   },
   {
