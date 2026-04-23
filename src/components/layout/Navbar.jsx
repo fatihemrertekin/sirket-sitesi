@@ -17,17 +17,16 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled || isOpen ? "bg-primary-900 shadow-lg py-4" : "bg-transparent py-6"
-      }`}
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? "bg-primary-900 shadow-lg py-4" : "bg-transparent py-6"
+        }`}
     >
       <nav className="container-custom flex items-center justify-between px-4 md:px-8 lg:px-16">
         {/* Logo */}
         <Link href="/" className="text-3xl font-bold text-white flex items-center gap-2" style={{ fontFamily: 'var(--font-playfair), serif' }}>
           {/* Basit bir ev iconu - SVG */}
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-accent-500">
-            <path d="M12 3L2 12H5V21H19V12H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M12 3L2 12H5V21H19V12H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           PİKUS<span className="text-accent-500">.</span>
         </Link>
