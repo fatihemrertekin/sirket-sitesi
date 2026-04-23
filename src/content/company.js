@@ -16,4 +16,5 @@ export const companyInfo = {
     instagram: "https://instagram.com/pikusahsap",
     facebook: "https://www.facebook.com/pikusahsap",
   },
+  whatsapp: "903525022086",
 };
