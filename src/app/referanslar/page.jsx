@@ -12,14 +12,14 @@ export default function ReferanslarPage() {
   const [activeCategory, setActiveCategory] = useState("Tümü");
 
   // Kategoriye göre filtreleme
-  const filteredProjects = activeCategory === "Tümü" 
-    ? projects 
+  const filteredProjects = activeCategory === "Tümü"
+    ? projects
     : projects.filter(p => p.category === activeCategory);
 
   return (
     <main className="bg-primary-900 min-h-screen pt-32 pb-20">
       <div className="container-custom">
-        
+
         {/* Başlık Alanı */}
         <div className="mb-16">
           <SectionTitle
@@ -37,11 +37,10 @@ export default function ReferanslarPage() {
             <button
               key={idx}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 border text-sm font-medium tracking-wider uppercase transition-all duration-300 ${
-                activeCategory === category 
-                  ? "border-accent-500 bg-accent-500 text-white" 
+              className={`px-6 py-2 border text-sm font-medium tracking-wider uppercase transition-all duration-300 cursor-pointer ${activeCategory === category
+                  ? "border-accent-500 bg-accent-500 text-white"
                   : "border-primary-700 text-primary-300 hover:border-accent-500 hover:text-accent-500"
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -103,7 +102,7 @@ export default function ReferanslarPage() {
             </Link>
           ))}
         </div>
-        
+
         {filteredProjects.length === 0 && (
           <div className="text-center py-20 text-primary-400 font-light">
             Bu kategoride henüz proje bulunmamaktadır.

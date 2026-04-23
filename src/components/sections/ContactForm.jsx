@@ -125,7 +125,6 @@ export default function ContactForm() {
                     type="email"
                     id="email"
                     name="email"
-                    required
                     disabled={isSubmitting}
                     value={formData.email}
                     onChange={handleChange}
@@ -139,6 +138,7 @@ export default function ContactForm() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  required
                   disabled={isSubmitting}
                   value={formData.phone}
                   onChange={handleChange}
@@ -162,7 +162,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-accent-500 text-white font-medium uppercase tracking-wider text-sm hover:bg-white hover:text-primary-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                className="w-full px-8 py-4 bg-accent-500 text-white font-medium uppercase tracking-wider text-sm hover:bg-white hover:text-primary-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-3"
               >
                 {isSubmitting ? (
                   <>

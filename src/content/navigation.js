@@ -4,5 +4,4 @@ export const navLinks = [
   { label: "Hizmetler", href: "/hizmetler" },
   { label: "Referanslar", href: "/referanslar" },
   { label: "Kendin Tasarla", href: "/kendin-tasarla" },
-
 ];

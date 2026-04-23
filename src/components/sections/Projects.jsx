@@ -26,9 +26,10 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.slice(0, 6).map((project, index) => (
-            <div
+            <Link
               key={index}
-              className="group relative overflow-hidden bg-primary-800 cursor-pointer"
+              href={`/referanslar/${project.slug}`}
+              className="group relative overflow-hidden bg-primary-800 cursor-pointer block"
             >
               {/* Görsel alanı - gereksiz wrapper kaldırıldı, DOM küçültüldü */}
               <div className="aspect-[4/5] bg-primary-800 relative overflow-hidden">
@@ -61,7 +62,7 @@ export default function Projects() {
                   <div className="w-0 h-[1px] bg-accent-500 group-hover:w-12 transition-all duration-700 delay-100 mt-4"></div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

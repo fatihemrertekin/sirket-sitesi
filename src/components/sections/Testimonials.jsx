@@ -5,16 +5,19 @@ const testimonials = [
     name: "Ahmet Yılmaz",
     role: "Ev Sahibi",
     text: "Hayalimde olan evi gerçeğe dönüştürdüler. Profesyonel ekip ve mükemmel iletişim, her detayı ince düşünüp kusursuz bir yaşam alanı yarattılar.",
+    image: "/images/customers/yuz1.jpg",
   },
   {
     name: "Zeynep Kaya",
     role: "İşletme Sahibi",
     text: "Ofisimizin tasarımında beklentilerimizin çok üzerinde bir iş çıkardılar. Müşterilerimizden sürekli tasarım hakkında övgüler alıyoruz.",
+    image: "/images/customers/yuz2.png",
   },
   {
     name: "Mehmet Demir",
     role: "Müteahhit",
     text: "Teknik detaylara hakimiyetleri ve yaratıcı çözümleri ile fark yaratıyorlar. Çalıştığım en profesyonel ahşap yapı firması diyebilirim.",
+    image: "/images/customers/yuz3.jpg",
   },
 ];
 
@@ -44,9 +47,11 @@ export default function Testimonials() {
               <p className="text-primary-200 font-light italic leading-relaxed relative z-10 mb-8 pt-4">
                 &quot;{item.text}&quot;
               </p>
-              
+
               <div className="flex items-center gap-4 border-t border-primary-700 pt-6">
-                <div className="w-12 h-12 rounded-full bg-primary-700"></div>
+                <div className="w-12 h-12 rounded-full bg-primary-700">
+                  <img className="w-12 h-12 rounded-full bg-primary-700" src={item.image} alt="" />
+                </div>
                 <div>
                   <h4 className="font-bold text-white tracking-wide" style={{ fontFamily: 'var(--font-playfair), serif' }}>{item.name}</h4>
                   <p className="text-xs text-accent-500 uppercase tracking-widest mt-1">{item.role}</p>

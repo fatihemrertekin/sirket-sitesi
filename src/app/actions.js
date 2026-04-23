@@ -9,7 +9,7 @@ export async function contactAction(formData) {
   const message = formData.get("message");
 
   // Basit validasyon
-  if (!name || !email || !message) {
+  if (!name || !message || !phone) {
     return { success: false, error: "Lütfen zorunlu alanları doldurun." };
   }
 
