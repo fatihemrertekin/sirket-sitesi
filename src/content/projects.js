@@ -4,7 +4,7 @@ export const projects = [
     slug: "modern-ahsap-kis-bahcesi-pro-max",
     category: "Kış Bahçesi",
     location: "Kayseri, Türkiye",
-    year: 2024,
+    year: 2026,
     description: "Modern hatlara sahip, her mevsime uygun dayanıklı kış bahçesi projesi.",
     image: "/images/projects/modern-ahsap-kis-bahcesi.jpg",
     longDescription:
@@ -29,7 +29,7 @@ export const projects = [
     slug: "eko-nis-35-ahsap-ev",
     category: "Ahşap Ev",
     location: "Kayseri, Türkiye",
-    year: 2023,
+    year: 2026,
     description: "Minimalist, doğaya duyarlı ve sürdürülebilir yaşam alanı sunan ahşap ev.",
     image: "/images/projects/eko-nis-35-ahsap-ev.jpg",
     longDescription:
@@ -54,7 +54,7 @@ export const projects = [
     slug: "bungalow-ev-4-1",
     category: "Bungalow",
     location: "Ankara, Türkiye",
-    year: 2023,
+    year: 2026,
     description: "Geniş aileler için tasarlanmış modern ve konforlu ahşap bungalow.",
     image: "/images/projects/modern-ahsap-kis-bahcesi.jpg",
     longDescription:
@@ -79,7 +79,7 @@ export const projects = [
     slug: "tiny-house-eko-8",
     category: "Tiny House",
     location: "İzmir, Türkiye",
-    year: 2024,
+    year: 2026,
     description: "Taşınabilir, fonksiyonel ve ergonomik küçük ev çözümü.",
     image: "/images/projects/eko-nis-35-ahsap-ev.jpg",
     longDescription:
@@ -104,7 +104,7 @@ export const projects = [
     slug: "antik-ahsap-kamelya",
     category: "Kamelya",
     location: "Kayseri, Türkiye",
-    year: 2023,
+    year: 2026,
     description: "Geleneksel dokunuşlarla tasarlanmış, estetik ahşap kamelya uygulaması.",
     image: "/images/projects/modern-ahsap-kis-bahcesi.jpg",
     longDescription:
@@ -129,7 +129,7 @@ export const projects = [
     slug: "pikus-tiny-house-800",
     category: "Tiny House",
     location: "Muğla, Türkiye",
-    year: 2024,
+    year: 2026,
     description: "Lüks ve konforu bir araya getiren üst segment tiny house projesi.",
     image: "/images/projects/eko-nis-35-ahsap-ev.jpg",
     longDescription:
