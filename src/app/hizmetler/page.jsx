@@ -32,16 +32,27 @@ export default function HizmetlerPage() {
               <div className="w-full lg:w-1/2">
                 <div className="aspect-[16/10] bg-primary-800 border border-primary-700 relative overflow-hidden group">
                   {/* Dekoratif Çizgiler */}
-                  <div className={`absolute top-4 ${index % 2 === 1 ? 'right-4' : 'left-4'} w-full h-full border border-accent-500/30 -z-10`}></div>
+                  <div className={`absolute top-4 ${index % 2 === 1 ? 'right-4' : 'left-4'} w-full h-full border border-accent-500/30 -z-0`}></div>
                   
-                  {/* Placeholder */}
-                  <div className="w-full h-full flex flex-col items-center justify-center text-primary-500 transition-transform duration-700 group-hover:scale-105 bg-primary-800 z-10 relative">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="mb-4 opacity-50">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                      <polyline points="21 15 16 10 5 21"></polyline>
-                    </svg>
-                    <span className="font-light tracking-widest uppercase text-sm">Görsel Alanı ({service.title})</span>
+                  {/* Görsel */}
+                  <div className="w-full h-full relative z-10 overflow-hidden">
+                    {service.heroImage ? (
+                      <img 
+                        src={service.heroImage} 
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center text-primary-500 bg-primary-800">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="mb-4 opacity-50">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                          <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <span className="font-light tracking-widest uppercase text-sm">Görsel Alanı</span>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-primary-900/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                 </div>
               </div>
