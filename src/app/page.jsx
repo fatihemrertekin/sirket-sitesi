@@ -6,8 +6,6 @@ import Projects from "@/components/sections/Projects";
 import Testimonials from "@/components/sections/Testimonials";
 import ContactForm from "@/components/sections/ContactForm";
 
-import { SpeedInsights } from '@vercel/speed-insights/next';
-
 export const metadata = {
   title: "Ana Sayfa | Pikus Ahşap - Kayseri Ahşap Yapı Çözümleri",
   description: "Minimal, doğaya duyarlı ve sürdürülebilir ahşap yaşam alanları sunan Pikus Ahşap ile hayallerinizdeki bahçeyi inşa ediyoruz.",
@@ -23,7 +21,6 @@ export default function HomePage() {
       <Projects />
       <Testimonials />
       <ContactForm />
-      <SpeedInsights />
     </main>
   );
 }
