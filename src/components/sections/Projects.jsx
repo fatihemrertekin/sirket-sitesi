@@ -30,17 +30,17 @@ export default function Projects() {
               key={index}
               className="group relative overflow-hidden bg-primary-800 cursor-pointer"
             >
-              {/* Görsel alanı */}
-              <div className="aspect-[4/5] bg-primary-800 relative transition-transform duration-700 group-hover:scale-105">
+              {/* Görsel alanı - gereksiz wrapper kaldırıldı, DOM küçültüldü */}
+              <div className="aspect-[4/5] bg-primary-800 relative overflow-hidden">
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    quality={90}
+                    quality={75}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={index === 0}
-                    className="object-cover"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-primary-500 font-light tracking-widest uppercase text-sm border border-primary-700">

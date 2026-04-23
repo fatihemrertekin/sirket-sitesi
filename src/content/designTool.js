@@ -36,7 +36,7 @@ export const designOptions = [
         id: "saricam",
         label: "Sibirya Sarıçamı",
         description: "Dayanıklı ve ekonomik 1. sınıf malzeme.",
-        price: 0,
+        price: 12000,
         image: "/images/design-tool/wood.png"
       },
       {

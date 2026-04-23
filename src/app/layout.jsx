@@ -6,11 +6,15 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata = {
@@ -25,6 +29,7 @@ export default function RootLayout({ children }) {
     <html
       lang="tr"
       className={`${inter.variable} ${playfair.variable} antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-primary-800 text-primary-200" suppressHydrationWarning>
