@@ -3,12 +3,12 @@
 import { useEffect, useRef } from "react";
 
 const words = [
-  "MİMARİ TASARIM",
-  "İÇ MİMARLIK",
-  "KENTSEL TASARIM",
-  "PEYZAJ TASARIMI",
-  "RENOVASYON",
-  "3D MODELLEME",
+  "AHŞAP BUNGALOV",
+  "TINY HOUSE",
+  "KIŞ BAHÇESİ",
+  "AHŞAP KAMELYA",
+  "AHŞAP EV",
+  "VERANDA & DECK",
 ];
 
 export default function Ticker() {

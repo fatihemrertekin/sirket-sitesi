@@ -3,6 +3,7 @@
 import { useState } from "react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { contactAction } from "@/app/actions";
+import { companyInfo } from "@/content/company";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -67,7 +68,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-1 tracking-wide" style={{ fontFamily: 'var(--font-playfair), serif' }}>Ofisimiz</h4>
-                  <p className="text-primary-300 font-light text-sm">Levent, Büyükdere Cad. No:123<br/>Şişli / İstanbul</p>
+                  <p className="text-primary-300 font-light text-sm">{companyInfo.address}</p>
                 </div>
               </div>
 
@@ -79,7 +80,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-1 tracking-wide" style={{ fontFamily: 'var(--font-playfair), serif' }}>E-posta</h4>
-                  <p className="text-primary-300 font-light text-sm">info@mimarlik.com<br/>proje@mimarlik.com</p>
+                  <p className="text-primary-300 font-light text-sm">{companyInfo.email}</p>
                 </div>
               </div>
             </div>

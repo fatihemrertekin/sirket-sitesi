@@ -25,7 +25,7 @@ export default function About() {
                 {companyInfo.experience}
               </div>
               <div className="text-sm text-primary-900 font-bold uppercase tracking-widest">
-                Yıllık Mimari Deneyim
+                Yıllık Sektörel Deneyim
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ export default function About() {
           <div className="lg:pl-8">
             <SectionTitle
               subtitle="Hakkımızda"
-              title="Geleceğin Mimarisini Bugünden İnşa Ediyoruz"
+              title="Doğal ve Sürdürülebilir Yaşam Alanları Tasarlıyoruz"
               align="left"
             />
             
@@ -50,8 +50,8 @@ export default function About() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-playfair), serif' }}>Ödüllü Tasarımlar</h4>
-                  <p className="text-primary-300 font-light">Ulusal ve uluslararası arenada ödül almış yenilikçi projeler.</p>
+                  <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-playfair), serif' }}>Kişiye Özel Tasarımlar</h4>
+                  <p className="text-primary-300 font-light">Mekanınıza ve tarzınıza özel fonksiyonel ahşap çözümler.</p>
                 </div>
               </div>
             </div>

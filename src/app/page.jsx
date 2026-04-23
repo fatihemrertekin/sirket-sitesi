@@ -7,8 +7,8 @@ import Testimonials from "@/components/sections/Testimonials";
 import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata = {
-  title: "Ana Sayfa | MİMAR Mimarlık & İç Tasarım",
-  description: "Estetik ve fonksiyonelliği bir araya getiren özgün mimari çözümlerle hayallerinizdeki mekanları inşa ediyoruz.",
+  title: "Ana Sayfa | Pikus Ahşap - Kayseri Ahşap Yapı Çözümleri",
+  description: "Minimal, doğaya duyarlı ve sürdürülebilir ahşap yaşam alanları sunan Pikus Ahşap ile hayallerinizdeki bahçeyi inşa ediyoruz.",
 };
 
 export default function HomePage() {

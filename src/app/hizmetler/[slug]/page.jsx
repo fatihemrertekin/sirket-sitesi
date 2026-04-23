@@ -1,6 +1,24 @@
 import { notFound } from "next/navigation";
+import { services } from "@/content/services";
 
-// Dinamik hizmet detay sayfası
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+  
+  return {
+    title: `${service?.title || "Hizmet"} | Pikus Ahşap`,
+    description: service?.description || "Pikus Ahşap hizmet detayları.",
+  };
+}
+
+// Build sırasında tüm hizmet sayfalarını statik olarak üret
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
+
+// Hizmet detay sayfası (artık statik)
 export default async function HizmetDetayPage({ params }) {
   const { slug } = await params;
 

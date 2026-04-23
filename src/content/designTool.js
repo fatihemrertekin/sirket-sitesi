@@ -1,89 +1,82 @@
 export const designOptions = [
   {
-    id: "style",
-    label: "Tasarım Stili",
+    id: "structureType",
+    label: "Yapı Tipi",
     type: "single",
     items: [
       {
-        id: "modern",
-        label: "Modern Lüks",
-        description: "Koyu mermer, cam detaylar ve geniş açıklıklar.",
-        price: 5000,
-        image: "/images/design-tool/styles.png"
+        id: "kamelya",
+        label: "Modern Kamelya",
+        description: "Minimalist çizgiler ve dayanıklı Sibirya sarıçamı.",
+        price: 25000,
+        image: "/images/design-tool/kamelya.png"
       },
       {
-        id: "minimalist",
-        label: "Minimalist Zen",
-        description: "Doğal ahşap, soft renkler ve sade çizgiler.",
-        price: 3500,
-        image: "/images/design-tool/styles.png"
+        id: "kis-bahcesi",
+        label: "Kış Bahçesi",
+        description: "Isı yalıtımlı camlar ve masif ahşap iskelet.",
+        price: 75000,
+        image: "/images/design-tool/kis-bahcesi.png"
       },
       {
-        id: "classic",
-        label: "Klasik Sofistike",
-        description: "Koyu ahşap paneller ve deri detaylar.",
-        price: 6000,
-        image: "/images/design-tool/styles.png"
+        id: "bungalow",
+        label: "Bungalow Ev",
+        description: "Ekolojik yaşam alanı sunan tam donanımlı ahşap ev.",
+        price: 450000,
+        image: "/images/design-tool/bungalow.png"
       }
     ]
   },
   {
-    id: "rooms",
-    label: "Oda Seçimi",
-    type: "multiple",
+    id: "material",
+    label: "Ahşap Türü",
+    type: "single",
     items: [
       {
-        id: "kitchen",
-        label: "Mutfak Tasarımı",
-        description: "Modern ve fonksiyonel mutfak çözümleri.",
-        price: 2500,
-        image: "/images/design-tool/rooms.png"
+        id: "saricam",
+        label: "Sibirya Sarıçamı",
+        description: "Dayanıklı ve ekonomik 1. sınıf malzeme.",
+        price: 0,
+        image: "/images/design-tool/wood.png"
       },
       {
-        id: "bedroom",
-        label: "Yatak Odası",
-        description: "Konforlu ve estetik dinlenme alanları.",
-        price: 2000,
-        image: "/images/design-tool/rooms.png"
+        id: "iroko",
+        label: "Iroko",
+        description: "Egzotik, suya ve neme karşı ekstra dayanıklı.",
+        price: 15000,
+        image: "/images/design-tool/wood.png"
       },
       {
-        id: "bathroom",
-        label: "Banyo",
-        description: "Spa etkili modern banyo tasarımları.",
-        price: 1500,
-        image: "/images/design-tool/rooms.png"
-      },
-      {
-        id: "office",
-        label: "Ev Ofisi",
-        description: "Verimli ve şık çalışma ortamları.",
-        price: 1800,
-        image: "/images/design-tool/rooms.png"
+        id: "ayous",
+        label: "Ayous (Termowood)",
+        description: "Isıl işlem görmüş, boyutsal kararlılığı yüksek.",
+        price: 20000,
+        image: "/images/design-tool/wood.png"
       }
     ]
   },
   {
     id: "extras",
-    label: "Ekstra Hizmetler",
+    label: "Ekstra Özellikler",
     type: "multiple",
     items: [
       {
-        id: "landscaping",
-        label: "Peyzaj Tasarımı",
-        description: "Dış mekan ve bahçe düzenleme.",
-        price: 3000
+        id: "kitchenette",
+        label: "Mini Mutfak",
+        description: "Yapı içerisine entegre masif ahşap mutfak dolabı.",
+        price: 12000
       },
       {
-        id: "smart-home",
-        label: "Akıllı Ev Sistemleri",
-        description: "Entegre teknoloji çözümleri.",
-        price: 4500
+        id: "lighting",
+        label: "Led Aydınlatma",
+        description: "Dekoratif gizli led ve spot aydınlatma sistemleri.",
+        price: 3500
       },
       {
-        id: "3d-modeling",
-        label: "3D Görselleştirme",
-        description: "Gerçekçi fotorealistik sunumlar.",
-        price: 1200
+        id: "varnish",
+        label: "Özel Renk Vernik",
+        description: "Güneşe ve neme ekstra dayanıklı renk seçenekleri.",
+        price: 2000
       }
     ]
   }

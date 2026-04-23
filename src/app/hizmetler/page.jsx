@@ -3,8 +3,8 @@ import { services } from "@/content/services";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Hizmetler | Mimarlık Ofisi",
-  description: "Mimari tasarım, iç mimarlık, peyzaj ve renovasyon hizmetlerimiz.",
+  title: "Hizmetler | Pikus Ahşap",
+  description: "Modern ahşap kamelya, kış bahçesi, bungalow ve kişiye özel ahşap mobilya çözümlerimiz.",
 };
 
 export default function HizmetlerPage() {
@@ -17,7 +17,7 @@ export default function HizmetlerPage() {
           <SectionTitle
             subtitle="Uzmanlıklarımız"
             title="Sizin İçin Neler Yapabiliriz?"
-            description="Mimari tasarım, iç mimarlık, peyzaj ve renovasyon gibi tüm hizmet alanlarımız."
+            description="Kamelya, kış bahçesi, ahşap ev ve kişiye özel dekorasyon çözümlerimizle doğayı yaşam alanlarınıza taşıyoruz."
             align="center"
             isH1={true}
           />

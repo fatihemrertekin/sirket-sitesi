@@ -1,8 +1,8 @@
 export const metadata = {
-  title: "Referanslar | Mimarlık Ofisi",
-  description: "Geçmişten günümüze tamamladığımız tüm projeler ve birlikte çalıştığımız mutlu müşterilerimiz.",
+  title: "Referanslar | Pikus Ahşap",
+  description: "Tamamladığımız ahşap yapı, kış bahçesi ve dekorasyon projelerimizden örnekler.",
 };
 
 export default function ReferanslarLayout({ children }) {
-  return <>{children}</>;
+  return children;
 }

@@ -1,22 +1,16 @@
 import SectionTitle from "@/components/ui/SectionTitle";
 import { companyInfo } from "@/content/company";
+import { team } from "@/content/team";
 
 export const metadata = {
-  title: "Hakkımızda | Mimarlık Ofisi",
-  description: "Mimarlık ofisimizin hikayesi, vizyonu ve ekibimiz hakkında bilgi edinin.",
+  title: "Hakkımızda | Pikus Ahşap",
+  description: "Minimal, doğaya duyarlı ve sürdürülebilir ahşap yaşam alanları sunan Pikus Ahşap'ın hikayesi ve ekibimiz.",
 };
 
-const team = [
-  { name: "Ahmet Yılmaz", role: "Kurucu & Baş Mimar" },
-  { name: "Elif Kaya", role: "İç Mimar" },
-  { name: "Can Demir", role: "Peyzaj Mimarı" },
-  { name: "Zeynep Çelik", role: "Proje Yöneticisi" },
-];
-
 const values = [
-  { title: "Yenilikçilik", desc: "Her projede modern ve özgün tasarım anlayışını ön planda tutuyoruz." },
-  { title: "Sürdürülebilirlik", desc: "Çevreye duyarlı, enerji verimli yapısal çözümler üretiyoruz." },
-  { title: "Fonksiyonellik", desc: "Estetiği kullanılabilirlik ile birleştirerek yaşam alanlarını optimize ediyoruz." },
+  { title: "Doğallık", desc: "Sadece en kaliteli ve sürdürülebilir ahşap malzemeleri kullanarak doğayla uyumlu yapılar inşa ediyoruz." },
+  { title: "Zanaatkarlık", desc: "Her projeyi bir sanat eseri titizliğiyle, usta ellerde hayat bulacak şekilde tasarlıyoruz." },
+  { title: "Sürdürülebilirlik", desc: "Gelecek nesillere daha yaşanabilir bir dünya bırakmak için ekolojik ve uzun ömürlü çözümler sunuyoruz." },
 ];
 
 export default function HakkimizdaPage() {
@@ -33,7 +27,7 @@ export default function HakkimizdaPage() {
                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                 <polyline points="21 15 16 10 5 21"></polyline>
               </svg>
-              <span className="font-light tracking-widest uppercase text-sm">Ofis / Kurumsal Görsel</span>
+              <span className="font-light tracking-widest uppercase text-sm">Pikus Ahşap Atölye</span>
             </div>
             
             {/* Altın Çerçeve Detayı */}
@@ -43,15 +37,15 @@ export default function HakkimizdaPage() {
           <div>
             <SectionTitle
               subtitle="Hikayemiz"
-              title="Mimariyi Sanatla Buluşturuyoruz"
+              title="Ahşabı Sanata ve Yaşama Dönüştürüyoruz"
               align="left"
               isH1={true}
             />
             <p className="text-primary-200 mt-8 text-lg font-light leading-relaxed mb-6">
-              2010 yılında kurulan ofisimiz, vizyoner bakış açısıyla mimari tasarım ve iç mimarlık alanında yenilikçi projelere imza atmaktadır. Her bir mekanı, kendi hikayesi olan benzersiz bir sanat eseri olarak görüyoruz.
+              Pikus Ahşap olarak, değişen ve kalabalıklaşan dünya şartlarında minimal, doğaya duyarlı, ekolojik ve ergonomik yaşam alanları sunuyoruz. Doğal malzemelerin sıcaklığını modern tasarım anlayışıyla birleştiriyoruz.
             </p>
             <p className="text-primary-200 text-lg font-light leading-relaxed">
-              Sadece estetik kaygılarla değil, fonksiyonelliği ve sürdürülebilirliği temel alarak yaşam alanlarını yeniden şekillendiriyoruz. Müşterilerimizin hayallerini gerçeğe dönüştürürken, çevresel sorumluluğumuzun da farkındayız.
+              Her kişinin tarzına özel, fonksiyonel mobilyalar ve yapılar üreterek sadece bir mekan değil, bir yaşam tarzı inşa ediyoruz. Uzman tasarımcı ve usta kadromuzla titizlikle hazırlanan her ürünümüz bizim için bir zanaat eseridir.
             </p>
             
             <div className="grid grid-cols-2 gap-8 mt-12 pt-8 border-t border-primary-800">
@@ -94,11 +88,11 @@ export default function HakkimizdaPage() {
       <section className="container-custom">
         <SectionTitle
           subtitle="Profesyoneller"
-          title="Yaratıcı Ekibimiz"
-          description="Her biri kendi alanında uzman, tutkulu ve vizyoner tasarım ekibimizle tanışın."
+          title="Usta Ekibimiz"
+          description="Her biri kendi alanında uzman, ahşaba tutkuyla bağlı ve vizyoner ekibimizle tanışın."
           align="center"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           {team?.map((member, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="w-full aspect-[3/4] bg-primary-800 border border-primary-700 relative overflow-hidden mb-6 flex items-center justify-center">
@@ -125,3 +119,4 @@ export default function HakkimizdaPage() {
     </main>
   );
 }
+

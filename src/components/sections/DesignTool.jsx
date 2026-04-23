@@ -4,19 +4,25 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { designOptions } from "@/content/designTool";
 
+// Build initial state dynamically from designOptions so keys always match
+const buildInitialState = () => {
+  return designOptions.reduce((acc, category) => {
+    acc[category.id] = category.type === "multiple" ? [] : null;
+    return acc;
+  }, {});
+};
+
 export default function DesignTool() {
-  const [selections, setSelections] = useState({
-    style: null,
-    rooms: [],
-    extras: []
-  });
+  const [selections, setSelections] = useState(buildInitialState);
 
   const totalPrice = useMemo(() => {
-    let total = 0;
-    if (selections.style) total += selections.style.price;
-    selections.rooms.forEach(item => total += item.price);
-    selections.extras.forEach(item => total += item.price);
-    return total;
+    return designOptions.reduce((total, category) => {
+      const sel = selections[category.id];
+      if (!sel) return total;
+      if (category.type === "single") return total + (sel.price ?? 0);
+      if (category.type === "multiple") return total + sel.reduce((s, i) => s + (i.price ?? 0), 0);
+      return total;
+    }, 0);
   }, [selections]);
 
   const toggleSingle = (categoryId, item) => {
@@ -28,18 +34,12 @@ export default function DesignTool() {
 
   const toggleMultiple = (categoryId, item) => {
     setSelections(prev => {
-      const current = prev[categoryId];
+      const current = prev[categoryId] ?? [];
       const exists = current.find(i => i.id === item.id);
       if (exists) {
-        return {
-          ...prev,
-          [categoryId]: current.filter(i => i.id !== item.id)
-        };
+        return { ...prev, [categoryId]: current.filter(i => i.id !== item.id) };
       } else {
-        return {
-          ...prev,
-          [categoryId]: [...current, item]
-        };
+        return { ...prev, [categoryId]: [...current, item] };
       }
     });
   };
@@ -126,41 +126,35 @@ export default function DesignTool() {
               <h3 className="text-2xl font-bold mb-8 border-b border-primary-800 pb-4">Proje Özeti</h3>
               
               <div className="space-y-6 mb-8 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
-                {/* Selected Style */}
-                {selections.style && (
-                  <div className="flex justify-between text-sm">
-                    <span className="text-primary-400">Stil: {selections.style.label}</span>
-                    <span className="text-white font-medium">₺{selections.style.price.toLocaleString()}</span>
-                  </div>
-                )}
-
-                {/* Selected Rooms */}
-                {selections.rooms.length > 0 && (
-                  <div className="space-y-2">
-                    <p className="text-xs uppercase tracking-widest text-accent-500 font-bold">Odalar</p>
-                    {selections.rooms.map(room => (
-                      <div key={room.id} className="flex justify-between text-sm">
-                        <span className="text-primary-400">{room.label}</span>
-                        <span className="text-white font-medium">₺{room.price.toLocaleString()}</span>
+                {/* Dynamically render all selected items grouped by category */}
+                {designOptions.map(category => {
+                  const sel = selections[category.id];
+                  if (!sel) return null;
+                  if (category.type === "single") {
+                    return (
+                      <div key={category.id} className="flex justify-between text-sm">
+                        <span className="text-primary-400">{category.label}: <span className="text-white">{sel.label}</span></span>
+                        <span className="text-white font-medium">₺{(sel.price ?? 0).toLocaleString()}</span>
                       </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Selected Extras */}
-                {selections.extras.length > 0 && (
-                  <div className="space-y-2">
-                    <p className="text-xs uppercase tracking-widest text-accent-500 font-bold">Ekstralar</p>
-                    {selections.extras.map(extra => (
-                      <div key={extra.id} className="flex justify-between text-sm">
-                        <span className="text-primary-400">{extra.label}</span>
-                        <span className="text-white font-medium">₺{extra.price.toLocaleString()}</span>
+                    );
+                  }
+                  if (category.type === "multiple" && sel.length > 0) {
+                    return (
+                      <div key={category.id} className="space-y-2">
+                        <p className="text-xs uppercase tracking-widest text-accent-500 font-bold">{category.label}</p>
+                        {sel.map(item => (
+                          <div key={item.id} className="flex justify-between text-sm">
+                            <span className="text-primary-400">{item.label}</span>
+                            <span className="text-white font-medium">₺{(item.price ?? 0).toLocaleString()}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                )}
+                    );
+                  }
+                  return null;
+                })}
 
-                {(!selections.style && selections.rooms.length === 0 && selections.extras.length === 0) && (
+                {totalPrice === 0 && (
                   <p className="text-primary-500 italic text-sm">Henüz bir seçim yapmadınız.</p>
                 )}
               </div>

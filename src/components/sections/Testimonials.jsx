@@ -14,7 +14,7 @@ const testimonials = [
   {
     name: "Mehmet Demir",
     role: "Müteahhit",
-    text: "Teknik detaylara hakimiyetleri ve yaratıcı çözümleri ile fark yaratıyorlar. Çalıştığım en profesyonel mimarlık ofisi diyebilirim.",
+    text: "Teknik detaylara hakimiyetleri ve yaratıcı çözümleri ile fark yaratıyorlar. Çalıştığım en profesyonel ahşap yapı firması diyebilirim.",
   },
 ];
 

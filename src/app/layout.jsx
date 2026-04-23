@@ -14,10 +14,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Mimarlık Ofisi | Yaratıcı Tasarım & Mimari Çözümler",
+  title: "Pikus Ahşap | Kayseri Modern Ahşap Kamelya & Kış Bahçesi",
   description:
-    "Modern mimarlık, iç mimarlık ve kentsel tasarım alanlarında yaratıcı ve sürdürülebilir çözümler sunan mimarlık ofisi.",
-  keywords: ["mimarlık", "iç mimarlık", "tasarım", "proje", "renovasyon"],
+    "Kayseri'de modern ahşap kamelya, kış bahçesi, bungalow ve kişiye özel ahşap mobilya çözümleri sunan lider üretici.",
+  keywords: ["ahşap kamelya", "kış bahçesi", "ahşap ev", "bungalow", "kayseri ahşap", "pergola"],
 };
 
 export default function RootLayout({ children }) {
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${playfair.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col bg-primary-800 text-primary-200">
+      <body className="min-h-screen flex flex-col bg-primary-800 text-primary-200" suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

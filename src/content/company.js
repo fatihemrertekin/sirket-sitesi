@@ -1,19 +1,19 @@
 export const companyInfo = {
-  name: "MİMAR Mimarlık",
+  name: "Pikus Ahşap",
   shortDescription:
-    "Modern mimari anlayışla, yaşam alanlarınızı estetik ve fonksiyonel çözümlerle şekillendiriyoruz.",
+    "Minimal, doğaya duyarlı ve sürdürülebilir ahşap yaşam alanları sunuyoruz.",
   longDescription:
-    "Yılların getirdiği deneyim ve genç, dinamik ekibimizle mimarlık alanında fark yaratıyoruz. Her projemizde müşterilerimizin hayallerini gerçeğe dönüştürmeyi, estetik ve fonksiyonelliği bir araya getirmeyi hedefliyoruz. Sürdürülebilir tasarım ilkeleriyle, yaşam alanlarını hem bugünün hem de yarının ihtiyaçlarına cevap verecek şekilde tasarlıyoruz.",
-  experience: 15,
-  projectCount: 200,
-  teamSize: 25,
-  clientCount: 180,
-  phone: "+90 212 555 00 00",
-  email: "info@mimarlik.com",
-  address: "Levent, Büyükdere Cad. No:123, 34394 Şişli/İstanbul",
+    "Pikus Ahşap; değişen ve kalabalıklaşan dünya şartlarında minimal, doğaya duyarlı, ekolojik, ergonomik ve sürdürülebilir yaşam alanları sunar. Doğadan malzemeler ile her kişinin tarzına özel fonksiyonel mobilya ve aksesuarlar üretir. Uzman tasarımcı ve usta kadrosuyla titizlikle hazırlanan zanaat eseri her ürünümüz bizim için kıymetlidir.",
+  experience: 10,
+  projectCount: 500,
+  teamSize: 15,
+  clientCount: 450,
+  phone: "0352 502 20 86",
+  email: "pikusahsap@gmail.com",
+  address: "Hacısaki Mh. Alpay Sk. Lifos Tower İş Merkezi B Blok Kat:11 Ofis:17/22 Kocasinan / Kayseri",
+  workshop: "Mobilya Kent Sitesi 5072.Sk. No: 10 A Kocasinan / Kayseri",
   social: {
-    instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/",
-    twitter: "https://twitter.com/",
+    instagram: "https://instagram.com/pikusahsap",
+    facebook: "https://www.facebook.com/pikusahsap",
   },
 };

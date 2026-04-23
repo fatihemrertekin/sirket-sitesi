@@ -7,22 +7,21 @@ export default function Footer() {
     <footer className="bg-primary-950 text-white pt-20 pb-10 border-t border-primary-800">
       <div className="container-custom px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Sütun 1: Logo & Hakkında */}
           <div className="lg:pr-8">
             <Link href="/" className="text-3xl font-bold flex items-center gap-2 mb-6" style={{ fontFamily: 'var(--font-playfair), serif' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-accent-500">
-                <path d="M12 3L2 12H5V21H19V12H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 3L2 12H5V21H19V12H22L12 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              MİMAR<span className="text-accent-500">.</span>
+              PİKUS<span className="text-accent-500">.</span>
             </Link>
             <p className="text-primary-400 font-light text-sm leading-relaxed mb-8">
-              {companyInfo.shortDescription} Yaratıcı ve estetik çözümlerle geleceğin mimarisini inşa ediyoruz.
+              {companyInfo.shortDescription} Doğal malzemeler ve usta zanaatkarlıkla geleceğin yaşam alanlarını inşa ediyoruz.
             </p>
             <div className="flex gap-4">
               <a href={companyInfo.social.instagram} className="w-10 h-10 border border-primary-800 flex items-center justify-center text-primary-400 hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all">IN</a>
-              <a href={companyInfo.social.linkedin} className="w-10 h-10 border border-primary-800 flex items-center justify-center text-primary-400 hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all">LI</a>
-              <a href={companyInfo.social.twitter} className="w-10 h-10 border border-primary-800 flex items-center justify-center text-primary-400 hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all">TW</a>
+              <a href={companyInfo.social.facebook} className="w-10 h-10 border border-primary-800 flex items-center justify-center text-primary-400 hover:bg-accent-500 hover:text-white hover:border-accent-500 transition-all">FA</a>
             </div>
           </div>
 
@@ -49,23 +48,23 @@ export default function Footer() {
             <h4 className="text-xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair), serif' }}>Hizmetlerimiz</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/hizmetler/mimari-tasarim" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Mimari Tasarım
+                <Link href="/hizmetler/kamelya-ve-kis-bahcesi" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
+                  <span className="w-2 h-[1px] bg-accent-500"></span> Kamelya & Kış Bahçesi
                 </Link>
               </li>
               <li>
-                <Link href="/hizmetler/ic-mimarlik" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> İç Mimarlık
+                <Link href="/hizmetler/ahsap-evler-ve-bungalow" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
+                  <span className="w-2 h-[1px] bg-accent-500"></span> Ahşap Ev & Bungalow
                 </Link>
               </li>
               <li>
-                <Link href="/hizmetler/kentsel-tasarim" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Kentsel Tasarım
+                <Link href="/hizmetler/ahsap-dekorasyon" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
+                  <span className="w-2 h-[1px] bg-accent-500"></span> Ahşap Dekorasyon
                 </Link>
               </li>
               <li>
-                <Link href="/hizmetler/peyzaj" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Peyzaj Tasarımı
+                <Link href="/hizmetler/ahsap-mobilya" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
+                  <span className="w-2 h-[1px] bg-accent-500"></span> Ahşap Mobilya
                 </Link>
               </li>
             </ul>
@@ -108,9 +107,12 @@ export default function Footer() {
           <p className="text-xs text-primary-500 font-light">
             &copy; {new Date().getFullYear()} {companyInfo.name}. Tüm hakları saklıdır.
           </p>
-          <div className="flex gap-4">
-            <Link href="/gizlilik" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Gizlilik Politikası</Link>
-            <Link href="/kullanim-sartlari" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Kullanım Şartları</Link>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-4 md:mt-0">
+            <Link href="/mesafeli-satis-sozlesmesi" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Mesafeli Satış Sözleşmesi</Link>
+            <Link href="/uyelik-sozlesmesi" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Üyelik Sözleşmesi</Link>
+            <Link href="/teslimat-ve-iade" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Teslimat ve İade</Link>
+            <Link href="/gizlilik" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Gizlilik ve Güvenlik</Link>
+            <Link href="/aydinlatma-metni" className="text-xs text-primary-500 hover:text-accent-500 transition-colors">Aydınlatma Metni</Link>
           </div>
         </div>
       </div>

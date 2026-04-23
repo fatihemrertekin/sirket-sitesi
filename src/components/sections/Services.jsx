@@ -9,7 +9,7 @@ export default function Services() {
         <SectionTitle
           subtitle="Uzmanlık Alanlarımız"
           title="Sizin İçin Neler Yapabiliriz?"
-          description="Hayalinizdeki projeleri gerçeğe dönüştürmek için kapsamlı mimari hizmetler sunuyoruz."
+          description="Hayalinizdeki mekanları gerçeğe dönüştürmek için kapsamlı ahşap yapı ve tasarım çözümleri sunuyoruz."
         />
 
         <div className="mt-16 border-t border-primary-800">

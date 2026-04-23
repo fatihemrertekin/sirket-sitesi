@@ -1,44 +1,44 @@
 export const services = [
   {
-    title: "Mimari Tasarım",
-    slug: "mimari-tasarim",
+    title: "Kamelya ve Kış Bahçesi",
+    slug: "kamelya-ve-kis-bahcesi",
     description:
-      "Konut, ticari ve karma kullanım projelerinde özgün mimari tasarım çözümleri sunuyoruz.",
-    icon: "🏛️",
+      "Modern, klasik ve antik tarzda ahşap kamelya ve kış bahçesi çözümleri sunuyoruz.",
+    icon: "🏡",
   },
   {
-    title: "İç Mimarlık",
-    slug: "ic-mimarlik",
+    title: "Ahşap Evler & Bungalow",
+    slug: "ahsap-evler-ve-bungalow",
     description:
-      "Yaşam ve çalışma alanlarınızı estetik, ergonomik ve fonksiyonel olarak tasarlıyoruz.",
-    icon: "🛋️",
+      "Minimalist ve doğayla iç içe, sürdürülebilir ahşap ev ve bungalow tasarımları.",
+    icon: "🏘️",
   },
   {
-    title: "Kentsel Tasarım",
-    slug: "kentsel-tasarim",
+    title: "Ahşap Dekorasyon",
+    slug: "ahsap-dekorasyon",
     description:
-      "Şehirlerin yaşanabilirliğini artıran, sürdürülebilir kentsel tasarım projeleri geliştiriyoruz.",
-    icon: "🏙️",
+      "Otel, cafe ve restoranlar için estetik ve modern iç mekan ahşap dekorasyon uygulamaları.",
+    icon: "🪵",
   },
   {
-    title: "Peyzaj Tasarımı",
-    slug: "peyzaj-tasarimi",
+    title: "Ahşap Peyzaj",
+    slug: "ahsap-peyzaj",
     description:
-      "Doğayla uyumlu, estetik ve fonksiyonel dış mekan tasarımları oluşturuyoruz.",
+      "Bahçeniz için çit, salıncak, saksı ve köprü gibi fonksiyonel ahşap çözümler.",
     icon: "🌿",
   },
   {
-    title: "Renovasyon",
-    slug: "renovasyon",
+    title: "Ahşap Mobilya",
+    slug: "ahsap-mobilya",
     description:
-      "Mevcut yapılarınızı modern standartlara uygun olarak yeniliyoruz.",
-    icon: "🔨",
+      "Kişiye özel tasarlanan modern ve dayanıklı ahşap mobilya koleksiyonları.",
+    icon: "🛋️",
   },
   {
-    title: "3D Modelleme",
-    slug: "3d-modelleme",
+    title: "Ahşap Kapı & Merdiven",
+    slug: "ahsap-kapi-ve-merdiven",
     description:
-      "Projelerinizi gerçekçi 3D görselleştirmelerle hayata geçiriyoruz.",
-    icon: "📐",
+      "Mekanınıza değer katan, yüksek kaliteli ahşap kapı ve merdiven uygulamaları.",
+    icon: "🚪",
   },
 ];

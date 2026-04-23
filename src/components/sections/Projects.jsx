@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/ui/SectionTitle";
 import { projects } from "@/content/projects";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Projects() {
   return (
@@ -18,7 +19,7 @@ export default function Projects() {
           >
             Tüm Projeler
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </Link>
         </div>
@@ -31,11 +32,23 @@ export default function Projects() {
             >
               {/* Görsel alanı */}
               <div className="aspect-[4/5] bg-primary-800 relative transition-transform duration-700 group-hover:scale-105">
-                <div className="w-full h-full flex items-center justify-center text-primary-500 font-light tracking-widest uppercase text-sm border border-primary-700">
-                  Görsel ({project.category})
-                </div>
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    quality={90}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index === 0}
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-primary-500 font-light tracking-widest uppercase text-sm border border-primary-700">
+                    Görsel ({project.category})
+                  </div>
+                )}
               </div>
-              
+
               {/* Overlay ve İçerik */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
