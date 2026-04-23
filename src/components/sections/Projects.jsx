@@ -1,7 +1,7 @@
 import SectionTitle from "@/components/ui/SectionTitle";
 import { projects } from "@/content/projects";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/ui/CustomImage";
 
 export default function Projects() {
   return (

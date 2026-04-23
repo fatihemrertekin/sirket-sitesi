@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { companyInfo } from "@/content/company";
 
-import Image from "next/image";
+import Image from "@/components/ui/CustomImage";
 
 export default function Hero() {
   return (

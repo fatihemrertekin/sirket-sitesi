@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { projects } from "@/content/projects";
-import Image from "next/image";
+import Image from "@/components/ui/CustomImage";
 
 const categories = ["Tümü", "Kış Bahçesi", "Ahşap Ev", "Bungalow", "Tiny House", "Kamelya"];
 

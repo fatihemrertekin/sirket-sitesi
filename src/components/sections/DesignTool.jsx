@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/CustomImage";
 import { designOptions } from "@/content/designTool";
 
 // Build initial state dynamically from designOptions so keys always match
