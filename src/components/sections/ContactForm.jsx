@@ -185,6 +185,7 @@ export default function ContactForm() {
                   name="message"
                   required
                   rows={4}
+                  maxLength={1000}
                   disabled={isSubmitting}
                   value={formData.message}
                   onChange={handleChange}
