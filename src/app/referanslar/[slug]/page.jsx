@@ -1,18 +1,21 @@
 import { notFound } from "next/navigation";
 import Image from "@/components/ui/CustomImage";
 import Link from "next/link";
-import { projects } from "@/content/projects";
+import { prisma } from "@/lib/prisma";
 
 // --- Static params for pre-rendering ---
 export async function generateStaticParams() {
+  const projects = await prisma.reference.findMany({ select: { slug: true } });
   return projects.map((p) => ({ slug: p.slug }));
 }
 
 // --- Per-page dynamic metadata ---
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = await prisma.reference.findUnique({ where: { slug } });
+  
   if (!project) return {};
+  
   return {
     title: `${project.title} | Referanslar | Pikus Ahşap`,
     description: project.description,
@@ -21,7 +24,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ProjectDetailPage({ params }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = await prisma.reference.findUnique({ where: { slug } });
 
   // 404 if slug doesn't match
   if (!project) notFound();

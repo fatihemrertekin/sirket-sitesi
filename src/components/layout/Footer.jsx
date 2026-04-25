@@ -2,7 +2,7 @@ import Link from "next/link";
 import { navLinks } from "@/content/navigation";
 import { companyInfo } from "@/content/company";
 
-export default function Footer() {
+export default function Footer({ services = [] }) {
   return (
     <footer className="bg-primary-950 text-white pt-20 pb-10 border-t border-primary-800">
       <div className="container-custom px-4 md:px-8 lg:px-16">
@@ -47,26 +47,19 @@ export default function Footer() {
           <div>
             <h4 className="text-xl font-bold mb-6" style={{ fontFamily: 'var(--font-playfair), serif' }}>Hizmetlerimiz</h4>
             <ul className="space-y-4">
-              <li>
-                <Link href="/hizmetler/kamelya-ve-kis-bahcesi" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Kamelya & Kış Bahçesi
-                </Link>
-              </li>
-              <li>
-                <Link href="/hizmetler/ahsap-evler-ve-bungalow" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Ahşap Ev & Bungalow
-                </Link>
-              </li>
-              <li>
-                <Link href="/hizmetler/ahsap-dekorasyon" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Ahşap Dekorasyon
-                </Link>
-              </li>
-              <li>
-                <Link href="/hizmetler/ahsap-mobilya" className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2">
-                  <span className="w-2 h-[1px] bg-accent-500"></span> Ahşap Mobilya
-                </Link>
-              </li>
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/hizmetler/${service.slug}`}
+                    className="text-primary-400 font-light hover:text-accent-500 transition-colors text-sm flex items-center gap-2"
+                  >
+                    <span className="w-2 h-[1px] bg-accent-500"></span> {service.title}
+                  </Link>
+                </li>
+              ))}
+              {services.length === 0 && (
+                <li className="text-primary-500 text-sm italic">Henüz hizmet eklenmedi.</li>
+              )}
             </ul>
           </div>
 

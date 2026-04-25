@@ -7,7 +7,6 @@ export const services = [
     longDescription:
       "Pikus Ahşap olarak, dış mekan yaşam alanlarınızı dört mevsim konforlu hale getiriyoruz. Geleneksel işçiliği modern mühendislik ile birleştirerek, bahçenize estetik ve değer katan kamelya ve kış bahçesi tasarımları üretiyoruz. Kullandığımız tüm ahşaplar, dış hava koşullarına dayanıklılığı artırılmış, emprenye edilmiş ve fırınlanmış birinci sınıf malzemelerdir.",
     heroImage: "/images/projects/modern-ahsap-kis-bahcesi.jpg",
-    icon: "🏡",
     items: [
       {
         title: "Modern Kış Bahçesi",
@@ -37,7 +36,6 @@ export const services = [
     longDescription:
       "Doğanın kalbinde, sürdürülebilir ve sağlıklı bir yaşam için tasarlanan ahşap evlerimiz; hem estetiği hem de dayanıklılığı bir arada sunar. EKO Niş serisi ve özel tasarım bungalow modellerimizle, hayalinizdeki yaşam alanını gerçeğe dönüştürüyoruz.",
     heroImage: "/images/projects/eko-nis-35-ahsap-ev.jpg",
-    icon: "🏘️",
     items: [
       {
         title: "EKO Niş 35 Ahşap Ev",
@@ -59,7 +57,6 @@ export const services = [
     description:
       "Otel, cafe ve restoranlar için estetik ve modern iç mekan ahşap dekorasyon uygulamaları.",
     heroImage: "/images/projects/modern-ahsap-kis-bahcesi.jpg",
-    icon: "🪵",
   },
   {
     title: "Ahşap Peyzaj",
@@ -67,7 +64,6 @@ export const services = [
     description:
       "Bahçeniz için çit, salıncak, saksı ve köprü gibi fonksiyonel ahşap çözümler.",
     heroImage: "/images/projects/eko-nis-35-ahsap-ev.jpg",
-    icon: "🌿",
   },
   {
     title: "Ahşap Mobilya",
@@ -75,7 +71,6 @@ export const services = [
     description:
       "Kişiye özel tasarlanan modern ve dayanıklı ahşap mobilya koleksiyonları.",
     heroImage: "/images/projects/modern-ahsap-kis-bahcesi.jpg",
-    icon: "🛋️",
   },
   {
     title: "Ahşap Kapı & Merdiven",
@@ -83,6 +78,5 @@ export const services = [
     description:
       "Mekanınıza değer katan, yüksek kaliteli ahşap kapı ve merdiven uygulamaları.",
     heroImage: "/images/projects/eko-nis-35-ahsap-ev.jpg",
-    icon: "🚪",
   },
 ];

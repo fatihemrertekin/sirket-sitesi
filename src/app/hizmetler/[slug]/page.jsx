@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
-import { services } from "@/content/services";
-import Image from "next/image";
+import { prisma } from "@/lib/prisma";
+import Image from "@/components/ui/CustomImage";
 import ServiceItems from "@/components/sections/ServiceItems";
 import ContactForm from "@/components/sections/ContactForm";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
-  
+  const service = await prisma.service.findUnique({ where: { slug } });
+
   if (!service) return { title: "Hizmet Bulunamadı" };
 
   return {
@@ -17,6 +17,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
+  const services = await prisma.service.findMany({ select: { slug: true } });
   return services.map((service) => ({
     slug: service.slug,
   }));
@@ -24,7 +25,7 @@ export async function generateStaticParams() {
 
 export default async function HizmetDetayPage({ params }) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await prisma.service.findUnique({ where: { slug } });
 
   if (!service) {
     notFound();
@@ -42,6 +43,7 @@ export default async function HizmetDetayPage({ params }) {
             fill
             className="object-cover"
             priority
+            unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary-900/80 via-primary-900/60 to-primary-950"></div>
         </div>
@@ -56,8 +58,8 @@ export default async function HizmetDetayPage({ params }) {
               </span>
               <div className="w-8 h-[1px] bg-accent-500"></div>
             </div>
-            <h1 
-              className="text-5xl md:text-7xl font-bold text-white mb-4" 
+            <h1
+              className="text-5xl md:text-7xl font-bold text-white mb-4"
               style={{ fontFamily: 'var(--font-playfair), serif' }}
             >
               {service.title}
@@ -103,14 +105,14 @@ export default async function HizmetDetayPage({ params }) {
             Size özel tasarım ve uygulama çözümlerimiz için bizimle iletişime geçin, uzman ekibimiz en kısa sürede size dönüş yapsın.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a 
-              href="/iletisim" 
+            <a
+              href="/iletisim"
               className="bg-accent-500 hover:bg-accent-600 text-primary-950 px-10 py-5 font-bold uppercase tracking-widest transition-all duration-300 transform hover:-translate-y-1"
             >
               Hemen Teklif Al
             </a>
-            <a 
-              href="https://wa.me/905300000000" 
+            <a
+              href="https://wa.me/905300000000"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-primary-700 hover:border-accent-500 text-white px-10 py-5 font-bold uppercase tracking-widest transition-all duration-300"

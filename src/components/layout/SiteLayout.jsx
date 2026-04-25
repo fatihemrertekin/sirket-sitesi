@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
-export default function SiteLayout({ children }) {
+export default function SiteLayout({ children, services }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin");
 
@@ -17,7 +17,7 @@ export default function SiteLayout({ children }) {
     <>
       <Navbar />
       <main className="flex-1">{children}</main>
-      <Footer />
+      <Footer services={services} />
       <WhatsAppButton />
     </>
   );

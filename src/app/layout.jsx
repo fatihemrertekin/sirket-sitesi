@@ -17,6 +17,7 @@ const playfair = Playfair_Display({
 });
 
 import SiteLayout from "@/components/layout/SiteLayout";
+import { prisma } from "@/lib/prisma";
 
 export const metadata = {
   title: "Pikus Ahşap | Kayseri Modern Ahşap Kamelya & Kış Bahçesi",
@@ -25,7 +26,12 @@ export const metadata = {
   keywords: ["ahşap kamelya", "kış bahçesi", "ahşap ev", "bungalow", "kayseri ahşap", "pergola"],
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const services = await prisma.service.findMany({
+    select: { title: true, slug: true },
+    orderBy: { createdAt: 'asc' }
+  });
+
   return (
     <html
       lang="tr"
@@ -34,7 +40,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-primary-800 text-primary-200" suppressHydrationWarning>
-        <SiteLayout>{children}</SiteLayout>
+        <SiteLayout services={services}>{children}</SiteLayout>
       </body>
     </html>
   );

@@ -1,9 +1,13 @@
 import SectionTitle from "@/components/ui/SectionTitle";
-import { projects } from "@/content/projects";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Image from "@/components/ui/CustomImage";
 
-export default function Projects() {
+export default async function Projects() {
+  const projects = await prisma.reference.findMany({
+    take: 6,
+    orderBy: { createdAt: "desc" },
+  });
   return (
     <section id="projeler" className="section-padding bg-primary-900 border-t border-primary-800">
       <div className="container-custom">
@@ -25,7 +29,7 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.slice(0, 6).map((project, index) => (
+          {projects?.map((project, index) => (
             <Link
               key={index}
               href={`/referanslar/${project.slug}`}
