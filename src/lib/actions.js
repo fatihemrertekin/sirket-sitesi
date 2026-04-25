@@ -59,6 +59,7 @@ export async function createService(formData) {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/admin");
   revalidatePath("/hizmetler");
 }
@@ -126,7 +127,9 @@ export async function updateService(id, formData) {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/admin");
+  revalidatePath("/hizmetler");
   revalidatePath(`/hizmetler/${slug}`);
 }
 
@@ -139,7 +142,9 @@ export async function deleteService(id) {
 
   await prisma.service.delete({ where: { id } });
 
+  revalidatePath("/");
   revalidatePath("/admin");
+  revalidatePath("/hizmetler");
 }
 
 // REFERENCES
@@ -185,6 +190,7 @@ export async function createReference(formData) {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/admin");
   revalidatePath("/referanslar");
 }
@@ -238,7 +244,9 @@ export async function updateReference(id, formData) {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/admin");
+  revalidatePath("/referanslar");
   revalidatePath(`/referanslar/${slug}`);
 }
 
@@ -250,5 +258,7 @@ export async function deleteReference(id) {
 
   await prisma.reference.delete({ where: { id } });
 
+  revalidatePath("/");
   revalidatePath("/admin");
+  revalidatePath("/referanslar");
 }
