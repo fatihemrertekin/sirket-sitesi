@@ -1,8 +1,6 @@
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
+
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,6 +15,8 @@ const playfair = Playfair_Display({
   display: "swap",
   preload: true,
 });
+
+import SiteLayout from "@/components/layout/SiteLayout";
 
 export const metadata = {
   title: "Pikus Ahşap | Kayseri Modern Ahşap Kamelya & Kış Bahçesi",
@@ -34,10 +34,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-primary-800 text-primary-200" suppressHydrationWarning>
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <SiteLayout>{children}</SiteLayout>
       </body>
     </html>
   );
